@@ -17,24 +17,22 @@ cough = st.radio("Do you have a persistent cough?", ["Yes", "No"])
 
 # Predict Button
 if st.button("Predict"):
-# User inputs
-age = st.number_input("Enter Age", min_value=1, max_value=52, step=1)
-peak_flow = st.number_input("Enter Peak Flow (L/min)", min_value=50, step=10)
-smoking = st.radio("Do you smoke?", ["Yes", "No"])
-cough = st.radio("Do you have a persistent cough?", ["Yes", "No"])
+    # Convert inputs into numerical values for the model
+    smoking_value = 1 if smoking == "Yes" else 0
+    cough_value = 1 if cough == "Yes" else 0
 
-# Convert inputs into numerical values for the model
-smoking_value = 1 if smoking == "Yes" else 0
-cough_value = 1 if cough == "Yes" else 0
+    # Prepare input for prediction
+    test_input = np.array([[age, peak_flow, smoking_value, cough_value]])
 
-# Prepare input for prediction
-test_input = np.array([[age, peak_flow, smoking_value, cough_value]])
-    prediction = model.predict(input_data)[0]  # Get prediction result
+    # Make prediction
+    prediction = model.predict(test_input)[0]  # Get prediction result
     
+    # Display results
     if prediction == 1:
         st.error("🔴 High Risk: The model predicts COPD or Asthma.")
     else:
         st.success("🟢 Low Risk: The model predicts no COPD or Asthma.")
+
 # Footer
 st.markdown(
     """

@@ -7,7 +7,7 @@ with open("copd_asthma_model.pkl", "rb") as file:
     model = pickle.load(file)
 
 st.title("COPD - Asthma Prediction")
-st.markdown("<h5 style='text-align: center; color: blue;'>Developed by Ehab Essam</h5>", unsafe_allow_html=True)
+st.markdown("<h4 style='text-align: center; color: grey; margin-top: -10px;'>Developed by Ehab Essam</h4>", unsafe_allow_html=True)
 st.write("Enter patient details to predict the condition.")
 
 # User Input Fields

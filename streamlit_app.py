@@ -7,7 +7,6 @@ with open("copd_asthma_model.pkl", "rb") as file:
     model = pickle.load(file)
 
 st.title("COPD - Asthma Prediction")
-st.markdown("<h4 style='text-align: center; color: grey; margin-top: -10px;'>Developed by Ehab Essam</h4>", unsafe_allow_html=True)
 st.write("Enter patient details to predict the condition.")
 
 # User Input Fields
@@ -24,3 +23,12 @@ if st.button("Predict"):
         st.error("🔴 High Risk: The model predicts COPD or Asthma.")
     else:
         st.success("🟢 Low Risk: The model predicts no COPD or Asthma.")
+# Footer
+st.markdown(
+    """
+    <div style="position: fixed; bottom: 10px; width: 100%; text-align: center; font-size: 14px; color: gray;">
+        Developed by <b>Ehab Essam</b>
+    </div>
+    """,
+    unsafe_allow_html=True
+)

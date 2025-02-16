@@ -10,7 +10,7 @@ st.title("COPD - Asthma Prediction")
 st.write("Enter patient details to predict the condition.")
 
 # User Input Fields
-age = st.number_input("Age", min_value=1, max_value=52, value=60)
+age = st.number_input("Age", min_value=1, max_value=52, value=30)
 peak_flow = st.number_input("Peak Flow (L/min)", min_value=50, max_value=800, value=250)
 uses_inhaler = st.radio("Uses Medication Inhaler?", [1, 0], format_func=lambda x: "Yes" if x == 1 else "No")
 

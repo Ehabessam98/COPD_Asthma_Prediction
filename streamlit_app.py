@@ -12,7 +12,8 @@ st.write("Enter patient details to predict the condition.")
 # User Input Fields
 age = st.number_input("Age", min_value=1, max_value=52, value=30)
 peak_flow = st.number_input("Peak Flow (L/min)", min_value=50, max_value=800, value=250)
-uses_inhaler = st.radio("Uses Medication Inhaler?", [1, 0], format_func=lambda x: "Yes" if x == 1 else "No")
+smoking = st.radio("Do you smoke?", ["Yes", "No"])
+cough = st.radio("Do you have a persistent cough?", ["Yes", "No"])
 
 # Predict Button
 if st.button("Predict"):

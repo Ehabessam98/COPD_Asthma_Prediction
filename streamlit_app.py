@@ -17,7 +17,7 @@ cough = st.radio("Do you have a persistent cough?", ["Yes", "No"])
 
 # Predict Button
 if st.button("Predict"):
-    input_data = np.array([[age, peak_flow, uses_inhaler]])  # Ensure correct shape
+test_input = np.array([[age, peak_flow, 1 if smoking == "Yes" else 0, 1 if cough == "Yes" else 0]])
     prediction = model.predict(input_data)[0]  # Get prediction result
     
     if prediction == 1:
